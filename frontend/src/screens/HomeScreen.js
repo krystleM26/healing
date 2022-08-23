@@ -1,7 +1,6 @@
-import { useEffect, useReducer, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import data from '../data'
 
 // const reducer = (state, action) => {
 //   switch (action.type) {
@@ -23,6 +22,9 @@ function HomeScreen() {
   //   error: '',
   // })
   const [products, setProducts] = useState([])
+  const [show, setShow] = useState(false)
+  console.log('products', products)
+
   useEffect(() => {
     const fetchData = async () => {
       // dispatch({ type: 'FETCH_REQUEST' })
@@ -37,9 +39,18 @@ function HomeScreen() {
     }
     fetchData() // call after defined
   }, [])
+
+  const onClick = () => {
+    setShow(!show)
+  }
+
   return (
     <div>
       <h1>Featured products</h1>
+      <button onClick={onClick}>
+        {show ? 'hide products' : 'show products'}
+      </button>
+
       <div className="products">
         {
           /* {loading ? (
@@ -47,18 +58,22 @@ function HomeScreen() {
         ) : error ? (
           <div>{error}</div>
         ) : ( */
-          data.products.map((product) => (
-            <div className="product" key={product.slug}>
-              <Link to={`/products/${product.slug}`}>
-                <img src={product.images} alt={product.name} />
-              </Link>
-              <div className="product-info">
-                <p>{product.name}</p>
-                <p>{product.price}</p>
-                <button>Add To Cart</button>
+
+          show &&
+            products &&
+            products.map((product, index) => (
+              <div className="product" key={product.slug}>
+                <Link to={`/products/${product.slug}`}>
+                  <img src={product.images} alt={product.name} />
+                </Link>
+                <div className="product-info">
+                  <p>{product.name}</p>
+                  <p>{product.price}</p>
+                  <p> Stock:{product.countInStock}</p>
+                  <button>Add To Cart</button>
+                </div>
               </div>
-            </div>
-          ))
+            ))
         }
       </div>
     </div>
