@@ -6,19 +6,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-header {
-  background-color: #404040;
-  padding: 1rem;
-}
-header a {
-  color: #ffff;
-  font-weight: bold;
-  text-decoration: none;
+.site-container {
+  min-height: 100vh;
 }
 
 main {
-  padding: 1rem;
+  flex: 1;
 }
 
 .products {
@@ -27,6 +20,13 @@ main {
   justify-content: center;
 }
 
+.rating span {
+  color: gold;
+}
+
+.btn-primary {
+  background-color: darkgreen;
+}
 .product {
   border: 1px #404040 solid;
   margin: 1rem;
