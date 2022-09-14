@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -17,6 +18,7 @@ const reducer = (state, action) => {
 const ProductScreen = () => {
   const params = useParams()
   const { slug } = params
+
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     product: [],
     loading: true,

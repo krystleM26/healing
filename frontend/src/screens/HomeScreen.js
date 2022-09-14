@@ -1,5 +1,4 @@
 import { useEffect, useReducer } from 'react'
-
 import axios from 'axios'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -24,8 +23,6 @@ function HomeScreen() {
     loading: true,
     error: '',
   })
-  // const [products, setProducts] = useState([])
-  // const [show, setShow] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,10 +45,6 @@ function HomeScreen() {
 
   return (
     <div>
-      <h2>Who we are</h2>
-      <div>
-        <p>About us</p>
-      </div>
       <h1>Featured Products</h1>
 
       <div className="products">
