@@ -15,7 +15,7 @@ function Subscribe() {
         <button onClick={toggle}>Subscribe Today</button>
       </div>
       {show && (
-        <div style={{ width: '100vw', height: '100vh', background: 'red' }}>
+        <div className="modal">
           <form>
             <input type="email" placeholder="E-mail" />
             <input type="text" placeholder="Name" />

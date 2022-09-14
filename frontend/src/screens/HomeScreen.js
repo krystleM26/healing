@@ -48,6 +48,10 @@ function HomeScreen() {
 
   return (
     <div>
+      <h2>Who we are</h2>
+      <div>
+        <p>About us</p>
+      </div>
       <h1>Featured Products</h1>
 
       <div className="products">
@@ -57,7 +61,7 @@ function HomeScreen() {
           <div>{error}</div>
         ) : (
           <Row>
-            {products.map((product, index) => (
+            {products.map((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                 <Product product={product}></Product>
               </Col>
