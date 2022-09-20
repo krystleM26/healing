@@ -3,6 +3,8 @@ import axios from 'axios'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Product from '../components/Product'
+import LoadingBox from '../components/LoadingBox'
+import MessageBox from '../components/MessageBox'
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -49,9 +51,9 @@ function HomeScreen() {
 
       <div className="products">
         {loading ? (
-          <div>Loading...</div>
+          <LoadingBox></LoadingBox>
         ) : error ? (
-          <div>{error}</div>
+          <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
             {products.map((product) => (
