@@ -37,7 +37,7 @@ const data = {
     },
     {
       name: 'Super Dry',
-      slug: 'superdry-shorts ',
+      slug: 'super-dry-shorts ',
       category: ' ',
       price: 0,
       countInStock: 10,

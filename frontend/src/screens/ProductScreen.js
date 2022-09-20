@@ -23,7 +23,7 @@ const ProductScreen = () => {
   const params = useParams()
   const { slug } = params
 
-  const [{ loading, error, product }, dispatch] = useReducer(reducer, {
+  const [{ loading, error, products }, dispatch] = useReducer(reducer, {
     product: [],
     loading: true,
     error: '',
@@ -49,20 +49,20 @@ const ProductScreen = () => {
     <div>
       <Row>
         <Col md={6}>
-          <img className="img-large" src={product.image} alt={product.name} />
+          <img className="img-large" src={products.image} alt={products.name} />
         </Col>
         <Col md={6}>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <h1>{product.name}</h1>
+              <h1>{products.name}</h1>
             </ListGroup.Item>
             <ListGroup.Item>
               <Rating
-                rating={product.rating}
-                numReviews={product.numReviews}
+                rating={products.rating}
+                numReviews={products.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
+            <ListGroup.Item>Price : ${products.price}</ListGroup.Item>
           </ListGroup>
         </Col>
         <Col md={6}></Col>
